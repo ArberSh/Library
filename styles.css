@@ -208,9 +208,6 @@ header {
 
 .header__img--wrapper {
   padding: 20px;
-
-  /* Added this after the tutorial to 
-  show it over the wave on larger screens */
   z-index: 50;
 }
 
@@ -323,7 +320,6 @@ FEATURES
 .book {
   width: 25%;
   padding: 24px;
-  /* Added after tutorial to push all the books images down */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -333,7 +329,6 @@ FEATURES
   max-height: 380px;
   transition: all 300ms ease;
   cursor: not-allowed;
-  /* Added after tutorial to maintain image aspect ratio */
   object-fit: contain;
   object-position: left;
 }
