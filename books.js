@@ -1,11 +1,18 @@
+let books;
+
 async function renderBooks(filter){
     const booksWrapper = document.querySelector(".books")
     
-    document.body.classList += ' books__loading'
-    const books = await getBooks()
-    document.body.classList.remove += ' books__loading'
+    booksWrapper.classList += ' books__loading'
+
+  if (!books) {
+    books = await getBooks();
+  }
+  
+  booksWrapper.classList.remove('books__loading')
+  
     if(filter === 'LOW-TO-HIGH'){
-      books.sort((a,b) => (a.salePrice || a.originalPrice) - ( b.originalPrice || b.salePrice))
+      books.sort((a,b) => (a.salePrice || a.originalPrice) - ( b.salePrice || b.originalPrice))
     }
     else if(filter === 'HIGH-TO-LOW'){
       books.sort((a,b) => (b.salePrice || b.originalPrice) - (a.salePrice || a.originalPrice))
@@ -68,7 +75,7 @@ setTimeout(() =>{
 // FAKE DATA
 function getBooks() {
   return new Promise((resolve) => {
-    setTimeout(()=>{
+    setTimeout(() => {
       resolve([
         {
           id: 1,
@@ -159,8 +166,9 @@ function getBooks() {
           rating: 4.5,
         },
       ]);
-    }, 1000)
-   })
-  }
+    }, 1000);
+  });
+}
+
 
   
